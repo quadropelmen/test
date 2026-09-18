@@ -1,7 +1,18 @@
+<!DOCTYPE html>
 <html>
+<head>
+    <title>XSS Proof</title>
+    <style>
+        body { background-color: red; color: white; font-family: sans-serif; text-align: center; padding-top: 50px; }
+    </style>
+</head>
 <body>
-<script>
-alert(1)
-</script>
+    <h1 id="status">Ожидание выполнения JS...</h1>
+
+    <script>
+        // Этот код выполнится гарантированно, если JS включен
+        document.getElementById("status").innerText = "Уязвимость подтверждена! JS выполнен успешно. Домен: " + document.domain;
+        document.body.style.backgroundColor = "green";
+    </script>
 </body>
 </html>
