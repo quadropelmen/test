@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>XSS Proof</title>
+    <title>XSS Control Test</title>
     <style>
         body { background-color: red; color: white; font-family: sans-serif; text-align: center; padding-top: 50px; }
+        button { padding: 15px 30px; font-size: 18px; font-weight: bold; background-color: white; color: black; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <h1 id="status">Ожидание выполнения JS...</h1>
+    <h1 id="status">Тест инициализации JS</h1>
+    <p>Если экран красный, нажмите кнопку ниже для ручного вызова скрипта:</p>
+    
+    <button onclick="runExploit()">АКТИВИРОВАТЬ ЭКСПЛОЙТ</button>
 
     <script>
-        // Этот код выполнится гарантированно, если JS включен
-        document.getElementById("status").innerText = "Уязвимость подтверждена! JS выполнен успешно. Домен: " + document.domain;
-        document.body.style.backgroundColor = "green";
+        function runExploit() {
+            document.getElementById("status").innerText = "JS РАБОТАЕТ! Домен: " + document.domain;
+            document.body.style.backgroundColor = "green";
+        }
     </script>
 </body>
 </html>
